@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>ぴん之介</title>
+      <link>https://pinnosuke.github.io/</link>
+      <description>Pinnosuke wants to speak something</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://pinnosuke.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>静的サイトジェネレイター Zola を触ってみた。ちょっとしたテーマの改造もやった。おまけに Github Actions を使って Github Pages で自動的に記事を公開するようにした。</title>
+          <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+          <author>Puko Pinnosuke</author>
+          <link>https://pinnosuke.github.io/posts/zola-and-github-pages/</link>
+          <guid>https://pinnosuke.github.io/posts/zola-and-github-pages/</guid>
+          <description>&lt;p&gt;あまり大きな声では言えませんが、Zolaの使い方を大雑把に理解したいだけであれば、
+&lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;getting-started&#x2F;overview&#x2F;&quot;&gt;公式の文書&lt;&#x2F;a&gt; だけで十分です。
+なにより正確です。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;hazimeni&quot;&gt;はじめに&lt;&#x2F;h2&gt;
+&lt;p&gt;静的サイトジェネレイター(以下SSG)好きの皆さんこんにちは。最近はどんな記事をビルドしましたか？
+その時に使ったSSGは何だったでしょうか。Gatsbyかな。それともHugo？Sphinxを使う人もいるかもしれないし、
+自作のシェルスクリプトを使っている強者もいるでしょう。Haskellのやつもなかったっけ……&lt;&#x2F;p&gt;
+&lt;p&gt;そんなSSG群雄割拠のこの時代に、遅れてやってきた期待の新星が &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt; なんです。
+ええ。本当に遅れていたのかは存じ上げませんが。
+ともかく、思いつきでブログを書き始めようとしたときに、最初に目に留まったのがZolaでした。
+私が最近気になっているRust製という点も引き付けられた要因の一つです。&lt;&#x2F;p&gt;
+&lt;p&gt;前置きはこの程度にして早速使っていきましょう。&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

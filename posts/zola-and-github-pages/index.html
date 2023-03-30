@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta itemprop="name" content="ぴん之介" />
+  <meta itemprop="description" content="Pinnosuke wants to speak something" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://pinnosuke.github.io/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://pinnosuke.github.io/favicon-32x32.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="https://pinnosuke.github.io/favicon-16x16.png"
+  />
+  <link
+    rel="shortcut icon"
+    href="https://pinnosuke.github.io/favicon.ico"
+  />
+  <link rel="stylesheet" href="https://pinnosuke.github.io/style.css"/>
+  
+  <link rel="stylesheet" href="https://pinnosuke.github.io/custom.css"/>
+  
+
+  
+  <title>静的サイトジェネレイター Zola を触ってみた。ちょっとしたテーマの改造もやった。おまけに Github Actions を使って Github Pages で自動的に記事を公開するようにした。</title>
+  
+
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://pinnosuke.github.io/rss.xml">
+  
+
+  <body id="page">
+
+	
+<header id="site-header" class="animated faster">
+  <div class="hdr-wrapper section-inner">
+    <div class="hdr-left">
+      <div class="site-branding">
+        <a href="https:&#x2F;&#x2F;pinnosuke.github.io&#x2F;">ぴん之介</a>
+      </div>
+      <nav class="site-nav hide-in-mobile">
+            
+        
+        <a href="https://pinnosuke.github.io//posts">Posts</a>
+        
+        <a href="https://pinnosuke.github.io//tags">Tags</a>
+        
+        <a href="https://pinnosuke.github.io//about">About</a>
+        
+      </nav>
+    </div>
+    <div class="hdr-right hdr-icons">
+      <span class="hdr-social hide-in-mobile">
+        
+
+<a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;@user-ew1cz3lc1d" target="_blank" rel="noopener me"
+   title="youtube">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+  
+</a>
+
+<a href="https:&#x2F;&#x2F;github.com&#x2F;pinnosuke" target="_blank" rel="noopener me"
+   title="github">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+  
+</a>
+
+<a href="emal@emal@email" target="_blank" rel="noopener me"
+   title="email">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+  
+</a>
+
+
+      </span>
+      <button id="menu-btn" class="hdr-btn" title="Menu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-menu"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div id="mobile-menu" class="animated fast">
+  <ul>
+    
+    <li><a href="https://pinnosuke.github.io//posts">Posts</a></li>
+    
+    <li><a href="https://pinnosuke.github.io//tags">Tags</a></li>
+    
+    <li><a href="https://pinnosuke.github.io//about">About</a></li>
+    
+  </ul>
+</div>
+
+	
+	
+
+		
+<main class="site-main section-inner animated fadeIn faster">
+  <article class="thin">
+	<header class="post-header">
+	  <div class="post-meta">
+		
+		<span>Mar 30, 2023</span>
+		<small> - 
+<span class="reading-time" title="Estimated read time">
+  
+  20 min read
+  
+</span>
+</small>
+		
+            
+            <button id="toc-btn" class="hdr-btn desktop-only-ib">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                    class="feather feather-list">
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                    <line x1="3" y1="6" x2="3" y2="6"></line>
+                    <line x1="3" y1="12" x2="3" y2="12"></line>
+                    <line x1="3" y1="18" x2="3" y2="18"></line>
+                </svg>
+            </button>
+		    
+	  </div>
+	  <h1>静的サイトジェネレイター Zola を触ってみた。ちょっとしたテーマの改造もやった。おまけに Github Actions を使って Github Pages で自動的に記事を公開するようにした。</h1>
+	</header>
+
+	<div class="content">
+        
+	  <p>あまり大きな声では言えませんが、Zolaの使い方を大雑把に理解したいだけであれば、
+<a href="https://www.getzola.org/documentation/getting-started/overview/">公式の文書</a> だけで十分です。
+なにより正確です。</p>
+<h2 id="hazimeni">はじめに</h2>
+<p>静的サイトジェネレイター(以下SSG)好きの皆さんこんにちは。最近はどんな記事をビルドしましたか？
+その時に使ったSSGは何だったでしょうか。Gatsbyかな。それともHugo？Sphinxを使う人もいるかもしれないし、
+自作のシェルスクリプトを使っている強者もいるでしょう。Haskellのやつもなかったっけ……</p>
+<p>そんなSSG群雄割拠のこの時代に、遅れてやってきた期待の新星が <a href="https://www.getzola.org/">Zola</a> なんです。
+ええ。本当に遅れていたのかは存じ上げませんが<sup class="footnote-reference"><a href="#1">1</a></sup>。
+ともかく、思いつきでブログを書き始めようとしたときに、最初に目に留まったのがZolaでした。
+私が最近気になっているRust製という点も引き付けられた要因の一つです。</p>
+<p>前置きはこの程度にして早速使っていきましょう。</p>
+<span id="continue-reading"></span>
+<p>と言いつつ、もう一つの前置き。私は他のSSGは、<a href="https://gohugo.io/">HUGO</a>くらいしか
+ちゃんと使った経験がありません。 Zolaを他のSSGと比較する場合は、HUGOとの比較が主となります。
+他のことは知らんのです。はい。ご了承くだされ。</p>
+<h2 id="zolanoinsutorutopuroziekutonozuo-cheng">Zolaのインストールとプロジェクトの作成</h2>
+<p>やることは単純です。</p>
+<h3 id="zola-noinsutoru">Zola のインストール</h3>
+<p>環境ごとのインストール方法が記載されているので、
+<a href="https://www.getzola.org/documentation/getting-started/installation/">公式文書</a>を参照しましょう。</p>
+<p>私はArch Linuxを使っています。ArchならZolaが公式のリポジトリに登録されているから
+コマンド一発でインストールできます。メンテナに感謝しつつコマンドを実行しましょう。</p>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>$ sudo pacman -S zola
+</span><span>$ zola --version 
+</span><span>zola 0.17.2
+</span></code></pre>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>$ pacman -Si zola
+</span><span>...
+</span><span>Packager        : Sven-Hendrik Haase 
+</span><span>...
+</span><span>$ echo &quot;Thank you, Haase!&quot;
+</span><span>Thank you, Haase!
+</span></code></pre>
+<h3 id="puroziekutonoxin-gui-zuo-cheng">プロジェクトの新規作成</h3>
+<p>インスールが完了したら、Zolaのプロジェクトを作りましょう。コマンドは<code>zola init プロジェクト名</code>です。</p>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>$ zola init atarashii_saito
+</span><span>Welcome to Zola!
+</span><span>Please answer a few questions to get started quickly.
+</span><span>Any choices made can be changed by modifying the `config.toml` file later.
+</span><span>&gt; What is the URL of your site? (https://example.com):
+</span><span>&gt; Do you want to enable Sass compilation? [Y/n]:
+</span><span>&gt; Do you want to enable syntax highlighting? [y/N]:
+</span><span>&gt; Do you want to build a search index of the content? [y/N]:
+</span><span>
+</span><span>Done! Your site was created in /home/pinnosuke/atarashii_saito
+</span><span>
+</span><span>Get started by moving into the directory and using the built-in server: `zola serve`
+</span><span>Visit https://www.getzola.org for the full documentation.
+</span></code></pre>
+<p>途中で幾つかの質問がありますが、エンターキー連打で切り抜けます。ふぅ危なかったぜ。</p>
+<p>質問の意味が分かる方は適宜回答すれば良いでしょう。</p>
+<p>さて、上記の通りに実行した結果なにが起こるかというと、
+一つの設定ファイルと幾つかの空ディレクトリが作られます。</p>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>$ tree
+</span><span>
+</span><span>atarashii_saito
+</span><span>├── config.toml
+</span><span>├── content
+</span><span>├── sass
+</span><span>├── static
+</span><span>├── templates
+</span><span>└── themes
+</span><span>
+</span><span>6 directories, 1 file
+</span></code></pre>
+<p><code>config.toml</code>が設定ファイルですね。他は全て空ディレクトリです。</p>
+<h3 id="git-deguan-li-sitai">git で管理したい</h3>
+<p>ここで、あれをしておきましょう。そう、あれ。<code>git init</code> です。
+どうせ後々githubとかgitlabで管理することになるので、今のうちにgit管理の準備をしておきます。</p>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>atarashii_saito $ git init
+</span><span>atarashii_saito $ echo public/ &gt; .gitignore
+</span><span>atarashii_saito $ git add --all
+</span><span>atarashii_saito $ git commit -m &quot;Initial commit&quot;
+</span></code></pre>
+<p><code>public</code> ディレクトリは <code>zola build</code> した時の生成物が収納される場所です。
+gitで管理する意味は無いので管理対象から外しましょう。</p>
+<h3 id="zhun-bei-wan-liao">準備完了！</h3>
+<p>この状態でもサイトを作ることができます。お試し程度のものですが。
+確認してみます？どうします？確認してみましょう。</p>
+<p>サイトの設定を詰めている時や記事を書いている最中は<code>zola serve</code>で
+組み込みのサーバーを起動させると良いでしょう。</p>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>atarashii_saito $ zola serve
+</span><span>...
+</span><span>Web server is available at http://127.0.0.1:1111
+</span><span>...
+</span></code></pre>
+<p>上記アドレス(<a href="http://127.0.0.1:1111">http://127.0.0.1:1111</a>)を訪ねると、Nginxの初期画面に匹敵するほどの
+豪華さのページが表示されます。やったね！</p>
+
+<a href="https://pinnosuke.github.io/images/welcome-to-zola.png" target="_blank">
+  <img src="https:&#x2F;&#x2F;pinnosuke.github.io&#x2F;processed_images&#x2F;welcome-to-zola.7463fc3279867946.png" />
+</a>
+<p>なお、仮想環境などで作業する場合は上記のアドレスが適切ではない場合もあるでしょう。
+そういう場合は <code>--interface</code> や <code>--base-url</code> といったオプションを指定しましょう。
+詳しくは <code>zola serve --help</code> を確認するよろし。</p>
+<p>ここから色々と構築していきましょう。</p>
+<h2 id="temawoarekoresuru">テーマをあれこれする</h2>
+<p>ここからが楽しいところです。が、無限に時間を吸い取られる箇所でもあります。
+ご利用は計画的に。</p>
+<h3 id="tematute">テーマって？</h3>
+<p>Zolaで言うところのテーマとは、成果物の外観だけに留まらず、
+プロジェクト内のディレクトリ構成をも決めてしまう雛形のようなものである。</p>
+<p>という説明を思い付いたが、適切だろうか。どうだろう。</p>
+<p>テーマとプロジェクト内のディレクトリ構成が<em>ゆるやかに</em>結びついていることで、
+あるテーマから別のテーマに変更しようとした時に手間がかかる場合がありますのでご注意！</p>
+<h3 id="temanoinsutorutute">テーマのインストールって？</h3>
+<p><em>Welcome to Zola</em> のページでは、
+<code>index.html</code>を作るかテーマをインストールしてねと言っていますが、
+<code>index.html</code>の作り方が分からないので、テーマをインストールしましょう。</p>
+<p>テーマは<a href="https://www.getzola.org/themes/">ここ</a>にあるのでお好みのものを見繕ってください。</p>
+<p>余談ですが、公式がまとめているテーマという点で言うと、どうしても
+<a href="https://themes.gohugo.io/">HUGO</a>と比較してしまいますね。
+やはり、HUGOの方がテーマの数が多いため選択肢が豊富で良いです。</p>
+<p>こういったプラグイン的なものは、どうしてもコミュニティの大きさに依って充実していくものなので、
+Zolaのコミュニティも大きくなっていくことを願って止みません。
+後述しますが、私もテーマを少しずつ書いています。
+今は既存のテーマの改造程度としか呼べないものですが。</p>
+<p>この記事を読んでZolaに興味を持った人が様々なテーマを作ってくれますように！</p>
+<p>さて、本題に戻りましょう。テーマをインストールすると言っても、いくつかやり方があると思います。</p>
+<ol>
+<li>プロジェクト内の空ディレクトリにテーマを突っ込んでいく</li>
+<li>themesディレクトリ内にテーマファイルを配置する</li>
+<li>themesディレクトリ内にテーマリポジトリをサブモジュールとして配置する</li>
+</ol>
+<p>一つ目の方法は後々の管理が面倒になることが目に見えてますね。
+気軽にテーマを変更することができそうにありません。なので却下します。却下！</p>
+<p>二つ目と三つ目はテーマのインストール方法でよく提示されてるやり方ですね。
+どちらのやり方でも好みの手法を選べば良いと思いますが、
+テーマ自体は記事などと一緒に管理する対象とは見做さない方が良いと判断して、
+三つ目の方法を採用しました。</p>
+<p>こんな感じでテーマを導入します。</p>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>atarashii_saito $ git submodule add https://github.com/pinnosuke/zaim_zola themes/zaim
+</span></code></pre>
+<p>ここで導入したテーマは、<a href="https://github.com/VersBinarii/hermit_zola">Hermit Zola</a> という
+既存のテーマをベースにして、私が改造しているものです。
+そして今まさに、あなたが見ているテーマがそれです！
+今はまだ自分の思い描いている完成形に対して道半ばといったところではありますが、
+使ってみていただけると幸いです。</p>
+<p>でも、できるならば各人が自分の好みに合わせてテーマを自作するのが良いと思います。</p>
+<h4 id="temayong-noshe-ding">テーマ用の設定</h4>
+<p>さて、実はテーマをサブモジュールとして追加しただけではサイト構築にはまだ不足しています。
+最低限の設定とファイルの作成をしましょう。</p>
+<p>まずは設定ファイルを編集します。</p>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>atarashii_saito $ vi config.toml
+</span><span>...
+</span><span>theme = &quot;zaim&quot;  # themes ディレクトリにあるフォルダ名を指定
+</span><span>...
+</span><span>[extra.author]
+</span><span>name = &quot;Watashi desu&quot;
+</span><span>...
+</span></code></pre>
+<p>theme の指定は [markdown] や [extra] の下位に位置しないようにしましょう。</p>
+<p>extra.author.name はページ下部の(c)2023 ~ の箇所に使用しています。</p>
+<h4 id="temanihe-wasetahuairunozhun-bei">テーマに合わせたファイルの準備</h4>
+<p>Zaim_Zola ではブログの記事は <code>contents/posts</code> 以下に保存されていることを前提としています。
+使用するテーマによって異なるので気をつけましょう。</p>
+<p>さらに、<a href="http://127.0.0.1:1111/posts">http://127.0.0.1:1111/posts</a> にアクセスした場合に表示されるページを
+調整するためのファイルを作成しましょう。</p>
+<pre data-lang="cli" style="background-color:#2b303b;color:#c0c5ce;" class="language-cli "><code class="language-cli" data-lang="cli"><span>atarashii_saito $ vi contents/posts/_index.md
+</span><span>+++
+</span><span>title = &quot;List of blog posts&quot;
+</span><span>sort_by = &quot;date&quot;
+</span><span>+++
+</span></code></pre>
+<p>こうするとどうなるのか。こうなるのだ。</p>
+
+<a href="https://pinnosuke.github.io/images/list-of-blog-posts.png" target="_blank">
+  <img src="https:&#x2F;&#x2F;pinnosuke.github.io&#x2F;processed_images&#x2F;list-of-blog-posts.8f41c94578dce2c9.png" />
+</a>
+<p>いい具合に記事を並べてくれましたね。title は各々好きなように変えると良いでしょう。</p>
+<h2 id="ji-shi-woshu-ku">記事を書く</h2>
+<p>ここまできたら、後は記事をガンガン書いていけば良いでしょう！私！</p>
+<p>さきほども述べたように、記事は <code>contents/posts</code> に作成します。
+その際、 Front Matter と呼ばれるメタ情報を記述する必要があります。</p>
+<p>最低限必要なのは、title と date です。書き方はこんな感じです。</p>
+<pre data-lang="markdown" style="background-color:#2b303b;color:#c0c5ce;" class="language-markdown "><code class="language-markdown" data-lang="markdown"><span>+++
+</span><span>title=&quot;taitoru&quot;
+</span><span>date=2029-12-31
+</span><span>...
+</span><span>+++
+</span><span>
+</span><span style="color:#8fa1b3;">## How To Win a Trial
+</span><span>
+</span><span>...
+</span></code></pre>
+<p>このようにファイルの冒頭に<code>+++</code>で囲まれた領域を作り、その中に必要な情報を記していきます。</p>
+<p>記事にタグ付けする場合なども、この Front Matter に記入しましょう。</p>
+<pre data-lang="markdown" style="background-color:#2b303b;color:#c0c5ce;" class="language-markdown "><code class="language-markdown" data-lang="markdown"><span>+++
+</span><span>title=&quot;taitoru&quot;
+</span><span>date=2029-12-31
+</span><span>[taxonomies]
+</span><span>tags = [&quot;tag1&quot;, &quot;tag2&quot;, &quot;田口&quot;]
+</span><span>+++
+</span></code></pre>
+<p><code>config.toml</code> にタグを有効化させる設定を記入します。</p>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#bf616a;">taxonomies </span><span>= [
+</span><span>  {</span><span style="color:#bf616a;">name </span><span>= &quot;</span><span style="color:#a3be8c;">tags</span><span>&quot;},
+</span><span>]
+</span></code></pre>
+<p><a href="http://127.0.0.1:1111/tags">http://127.0.0.1:1111/tags</a> にアクセスするとほら、世界が広がったでしょ。</p>
+<h2 id="ji-shi-wogong-kai-suru">記事を公開する</h2>
+<p>広い世界の片隅にはSSGを個人的なメモ環境として使っている人がいるかも知れませんが、
+多くの人類がSSGを公開用の記事のために使っているのではないでしょうか。
+そんなことない？
+少なくとも私はそうなんです。</p>
+<p>その記事を公開する場所を考えると、いくつも選択肢があります。
+定番所だと、Netlify, GitHub Pages, GitLab Pages などでしょうか。
+その辺りを見越して、Zolaの公式文書でも、これらのサイトで記事を公開する方法が紹介されています
+(<a href="https://www.getzola.org/documentation/deployment/netlify/">例:Netlifyの場合</a>)。
+しかもgitと連携して！やったね！</p>
+<p>記事を書いて、github 上のリポジトリにpushするだけ！それだけでGitHub Pages で
+記事を見ることができちまうんだ。すげーや。</p>
+<p>で、私はGitHub Pages を使いたいと思ったんだ……</p>
+<h3 id="github-actions-karano-github-pages-he">GitHub Actions からの GitHub Pages へ</h3>
+<p>まずは何も考えずに、<code>&lt;username&gt;.github.io</code>というリポジトリを新規作成します。&lt;username&gt;は各々置き換えてください。</p>
+<p>この時点であなたは少なくとも二つのリポジトリを持っていますね。
+もし、この記事の前半で扱ったローカルリポジトリをgithub上にまだpushしていないのなら
+pushしておきましょう。</p>
+<p>ここからの手順の理解を容易にするために、
+それぞれのリポジトリの役割などを再確認します。</p>
+<table><thead><tr><th>仮称</th><th>役割</th><th>リポジトリのURL</th></tr></thead><tbody>
+<tr><td>A</td><td>記事の管理用</td><td>https://github.com/&lt;username&gt;/myblog</td></tr>
+<tr><td>B</td><td>記事の公開用</td><td>https://github.com/&lt;username&gt;/&lt;username&gt;.github.io</td></tr>
+</tbody></table>
+<p>Aのリポジトリはこの記事の前半で扱ったリポジトリです。記事自体を格納しているので、記事の管理用として認識できます。
+Bのリポジトリは今まさに作成したばかりのリポジトリです。<code>&lt;username&gt;.github.io</code>という名前を持つリポジトリは
+特別扱いされ、<code>https://&lt;username&gt;.github.io/</code>にアクセスすると、このリポジトリの<code>index.html</code>にアクセスできます。</p>
+<p>リポAに記事をpushすると、<code>https://&lt;username&gt;.github.io/</code> で公開され、
+誰でも閲覧できるようになる！これがしたいんだ！</p>
+<p>注: ここから、能書きがとても長いので、やりかただけをさくっと確認したい方は &quot;PUBLIC_TOKEN の作成&quot; までスクロール推奨。</p>
+<p>こうして<a href="https://www.getzola.org/documentation/deployment/github-pages/">GitHub Pages で記事を公開する手順を記したページ</a>を
+見つけた私は意気揚々とその手順に沿って事を進めようとしたのだが、
+これまでどちらかというと GitLab を使ってきたこともあって、GitHub Actions の仕様に
+慣れていなかったり、インターネッツに書かれている無数の記事はちょっと古くて
+今のGitHub仕様と異なる場所があったりで、散々な目に会いました。</p>
+<p>そんな私が、こうして何とかGitHub Pagesで記事を公開できているのはほぼ奇跡と言って
+差し支えないでしょう。ということで、ここからは奇跡の起こし方を紹介します。</p>
+<p>そうすることで、かつての私と同じ境遇にあった数多の迷える子羊たちを導きたいと思います。
+そして、GitHub の仕様が変わった際には、逆に迷える子羊を生産する側に回りたいと思います。</p>
+<h4 id="github-actions-nizhen-rihui-sareru-iyamusiro">GitHub Actions に振り回される。いやむしろ……</h4>
+<p>前述したように、私のブログ運用方法としてはリポジトリを2つ使います。
+記事自体を格納するリポジトリはプライベートにしておいて、
+公開用のリポジトリは別に準備しました。</p>
+<p><a href="https://www.getzola.org/documentation/deployment/github-pages/">公式文書</a> によると、
+そういう場合はこのワークフローを使うべし、というものが記載されています。
+全部引用します。</p>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#d08770;">on</span><span>: </span><span style="color:#a3be8c;">push
+</span><span style="color:#bf616a;">jobs</span><span>:
+</span><span>  </span><span style="color:#bf616a;">build</span><span>:
+</span><span>    </span><span style="color:#bf616a;">runs-on</span><span>: </span><span style="color:#a3be8c;">ubuntu-latest
+</span><span>    </span><span style="color:#bf616a;">if</span><span>: </span><span style="color:#a3be8c;">github.ref != &#39;refs/heads/main&#39;
+</span><span>    </span><span style="color:#bf616a;">steps</span><span>:
+</span><span>      - </span><span style="color:#bf616a;">name</span><span>: &#39;</span><span style="color:#a3be8c;">checkout</span><span>&#39;
+</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">actions/checkout@v3.0.0
+</span><span>      - </span><span style="color:#bf616a;">name</span><span>: &#39;</span><span style="color:#a3be8c;">build</span><span>&#39;
+</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">shalzz/zola-deploy-action@v0.16.1
+</span><span>        </span><span style="color:#bf616a;">env</span><span>:
+</span><span>          </span><span style="color:#bf616a;">PAGES_BRANCH</span><span>: </span><span style="color:#a3be8c;">gh-pages
+</span><span>          </span><span style="color:#bf616a;">BUILD_DIR</span><span>: </span><span style="color:#d08770;">.
+</span><span>          </span><span style="color:#bf616a;">TOKEN</span><span>: </span><span style="color:#a3be8c;">${{ secrets.TOKEN }}
+</span><span>          </span><span style="color:#65737e;"># BUILD_ONLY: true
+</span><span>  </span><span style="color:#bf616a;">build_and_deploy</span><span>:
+</span><span>    </span><span style="color:#bf616a;">runs-on</span><span>: </span><span style="color:#a3be8c;">ubuntu-latest
+</span><span>    </span><span style="color:#bf616a;">if</span><span>: </span><span style="color:#a3be8c;">github.ref == &#39;refs/heads/main&#39;
+</span><span>    </span><span style="color:#bf616a;">steps</span><span>:
+</span><span>      - </span><span style="color:#bf616a;">name</span><span>: &#39;</span><span style="color:#a3be8c;">checkout</span><span>&#39;
+</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">actions/checkout@v3.0.0
+</span><span>      - </span><span style="color:#bf616a;">name</span><span>: &#39;</span><span style="color:#a3be8c;">build and deploy</span><span>&#39;
+</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">shalzz/zola-deploy-action@v0.16.1
+</span><span>        </span><span style="color:#bf616a;">env</span><span>:
+</span><span>          </span><span style="color:#bf616a;">PAGES_BRANCH</span><span>: </span><span style="color:#a3be8c;">master
+</span><span>          </span><span style="color:#bf616a;">BUILD_DIR</span><span>: </span><span style="color:#d08770;">.
+</span><span>          </span><span style="color:#bf616a;">TOKEN</span><span>: </span><span style="color:#a3be8c;">${{ secrets.PUBLIC_TOKEN }}
+</span><span>          </span><span style="color:#bf616a;">REPOSITORY</span><span>: </span><span style="color:#a3be8c;">username/username.github.io
+</span></code></pre>
+<p>yaml は読めるけど GitHub Actions には慣れていないので、読み解くのが大変でした。
+頑張って読み解き、少しずつ理解していったところによるとこんな感じでした。</p>
+<ul>
+<li>push された時にこのファイルに記載されていることを実行する</li>
+<li>jobs には二つのjobが登録されている
+<ul>
+<li>それぞれ実行可否の条件が異なる
+<ul>
+<li>現在作業中のブランチが refs/heads/main でないなら build のみ実行</li>
+<li>現在作業中のブランチが refs/heads/main であるなら build と deploy を実行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>条件に該当した場合の実施項目は steps に記載されており、記述順に実行される</li>
+<li>環境変数は env 以下に記述する</li>
+<li>secrets.PUBLIC_TOKEN は公開用リポジトリに対する操作権限を付与したアクセストークン</li>
+<li>${{ secrets.PUBLIC_TOKEN }} っていう記法でそれを参照できる
+<ul>
+<li>secrets っていう名前空間(?)はGitHub Actions が自動的に理解してくれる</li>
+</ul>
+</li>
+</ul>
+<p>箇条書きにするとこんなもんですが、知識ゼロから理解しようとすると大変ですね。</p>
+<p>まず、記事を公開する為だけにGitHub Actionsを使う私にとって、
+最初のジョブは不要です。ひとまず把握すべき量が半分になったのは僥倖です。
+一方で、buidl_and_deploy の記述では、env で指定してる内容の理解が難しかったですね。
+というか、トークン関連……</p>
+<ul>
+<li>
+<p><code>PAGE_BRANCH</code> は公開用のリポジトリで公開用に作られたブランチの名前です。普通ならmainですね。
+普通じゃない場合は、そういう自覚があるはずなので、適宜修正してください。</p>
+</li>
+<li>
+<p><code>REPOSITORY</code> は公開用リポジトリそのものを指しているので、特に分かり難いことはないでしょう。</p>
+</li>
+<li>
+<p><code>BUILD_DIR</code> は <code>.</code> のままです。変える必要性は無いと思います。多分。</p>
+</li>
+<li>
+<p><code>TOKEN</code> が最も厄介でした。ここで参照される(であろう) <code>PUBLIC_TOKEN</code> という名称は、公式文書の中で
+ここ以外にはでてこないものです。つまり、PUBLIC_TOKEN の実態が何であるかの説明が
+一切無い(ように見える)んです。</p>
+</li>
+</ul>
+<p>今文書を読み返すと<code>PUBLIC_TOKEN</code>が何を表しているのか、
+なんとなく分かるようにはなっているんですけれどね。
+恐らくGitHub Actionsに慣れた方なら、この程度の文脈で初見時から理解できるのかとは思います。</p>
+<p>次の壁はこのトークンをどうやって生成するかが問題です。
+公式文書や世界中の先人たちもZola + GitHub Actions → GitHub Pages の手法を
+解説しているのですが、情報が少し古かったですね。しょうがないですよね。</p>
+<h3 id="public-token-nozuo-cheng-2023-03-30-ban">PUBLIC_TOKEN の作成 2023-03-30 版</h3>
+<p>これが最新のPUBLIC_TOKENの作り方だ！</p>
+<ol>
+<li>GitHubにサインインする</li>
+<li><a href="https://github.com/settings/tokens?type=beta">https://github.com/settings/tokens?type=beta</a> にアクセスする
+<ol>
+<li>アヴァター画像をクリックした時のメニューから Settings -&gt; Developper settings
+-&gt; Personal access tokens -&gt; Fine-grained tokens でも辿りつける</li>
+</ol>
+</li>
+<li>&quot;Generate new token&quot; をクリック</li>
+<li>トークン作成画面に遷移
+<ol>
+<li>Token name は適当に決める</li>
+<li>Expiration も適当に 長い方が良いかも</li>
+<li>Pepository access は &quot;Only select repositories&quot; を選択する
+<ul>
+<li>Select repositories で <code>&lt;username&gt;.github.io</code>を選択する</li>
+</ul>
+</li>
+<li>Permissions -&gt; Repository permissions で &quot;Contents&quot; の権限を&quot;Read and write&quot; に設定する</li>
+<li>ページ下部の &quot;Generate token&quot; をクリックする</li>
+</ol>
+</li>
+<li>画面遷移後のトークンをメモする
+<ol>
+<li>このトークンが表示されるのはこの時しかない。後から確認することはできないので気をつけて</li>
+<li>このトークンを使うことで、<code>&lt;username&gt;.github.io</code>のリポジトリに対する操作が可能になる</li>
+</ol>
+</li>
+<li>記事管理用のリポジトリを開く</li>
+<li>&quot;Code&quot;, &quot;Issues&quot; の並びにある &quot;Settings&quot; をクリック</li>
+<li>画面左の並びから &quot;Secrets and variables&quot; -&gt; Actions をクリック</li>
+<li>&quot;New repository secret&quot; をクリック
+<ol>
+<li>Name欄に PUBLIC_TOKEN と入力する</li>
+<li>Secret は 5. でメモした内容を書き込む</li>
+<li>&quot;Add secret&quot; をクリックして secret を生成する！</li>
+</ol>
+</li>
+</ol>
+<p>これで <code>PUBLIC_TOKEN</code> を生成することができました。やったぜ！</p>
+<h3 id="wakuhuronozuo-cheng">ワークフローの作成</h3>
+<p>ここで最終的な <code>.github/workflows/main.yml</code> をお見せいたします。</p>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#d08770;">on</span><span>: </span><span style="color:#a3be8c;">push
+</span><span style="color:#bf616a;">jobs</span><span>:
+</span><span>  </span><span style="color:#bf616a;">build_and_deploy</span><span>:
+</span><span>    </span><span style="color:#bf616a;">runs-on</span><span>: </span><span style="color:#a3be8c;">ubuntu-latest
+</span><span>    </span><span style="color:#bf616a;">if</span><span>: </span><span style="color:#a3be8c;">github.ref == &#39;refs/heads/main&#39;
+</span><span>    </span><span style="color:#bf616a;">steps</span><span>:
+</span><span>      - </span><span style="color:#bf616a;">name</span><span>: &#39;</span><span style="color:#a3be8c;">checkout</span><span>&#39;
+</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">actions/checkout@v3.0.0
+</span><span>      - </span><span style="color:#bf616a;">name</span><span>: &#39;</span><span style="color:#a3be8c;">create useless templates directory</span><span>&#39;
+</span><span>        </span><span style="color:#bf616a;">run</span><span>: </span><span style="color:#a3be8c;">mkdir templates
+</span><span>      - </span><span style="color:#bf616a;">name</span><span>: &#39;</span><span style="color:#a3be8c;">build and deploy</span><span>&#39;
+</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">shalzz/zola-deploy-action@master
+</span><span>        </span><span style="color:#bf616a;">env</span><span>:
+</span><span>          </span><span style="color:#bf616a;">BUILD_DIR</span><span>: </span><span style="color:#d08770;">.
+</span><span>          </span><span style="color:#bf616a;">PAGES_BRANCH</span><span>: </span><span style="color:#a3be8c;">main
+</span><span>          </span><span style="color:#bf616a;">TOKEN</span><span>: </span><span style="color:#a3be8c;">${{ secrets.PUBLIC_TOKEN }}
+</span><span>          </span><span style="color:#bf616a;">REPOSITORY</span><span>: </span><span style="color:#a3be8c;">yuuzaaneemu/yuuzaaneemu.github.io
+</span></code></pre>
+<p><code>yuuzaaneemu</code> はあなたのユーザー名に書き換えてください。</p>
+<p>さて、何やら怪しいステップが挿入されてますね。
+ワークフローを作成している途中で、<code>templates</code>が見つからないというエラーに遭遇してしまいました。
+<code>mkdir templates</code>をエラー発生の前に挿入して誤魔化してはいますが、
+何とも気持ち悪いですね。
+どうやら、gitのバージョンに起因するエラーらしいので、その内このステップは不要になるかも知れませんね。</p>
+<p>少々の気持ち悪さを残しつつも、無事にGitHub Pagesで記事を公開させることができました。
+この記事をあなたが見ているということは、つまりそういうことです。</p>
+<h2 id="owarini">おわりに</h2>
+<ul>
+<li>
+<p>私の脳細胞の大部分を生贄に捧げることで、読者の方の脳細胞を守ることができたならば幸いです。</p>
+</li>
+<li>
+<p>この記事の冒頭でZolaに魅かれた理由の一つとしてRust製であることを挙げましたが、
+Rustはまったく関係なかったです。
+思い起せば、Hugoを触っていたときも、goはまったく関係なかったな。
+でもアプリケーションってそういうものだったわ。</p>
+</li>
+<li>
+<p>ZolaでもGitHubでも、最終的には公式文書が最も役に立ちますよね。
+ただし、それらの文書が前提としている文脈を共有できていなければなりません。
+そこに辿り着くまでに時間がかかってしまうのがキツいですが……</p>
+</li>
+<li>
+<p>YouTubeにいろいろな動画を投稿したり、配信したりすることもあるので、
+ぜひ見にきてください。</p>
+</li>
+</ul>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>最初のコミットは2016年の12月でした。</p>
+</div>
+
+	</div>
+	<hr class="post-end">
+	<footer class="post-info">
+    
+	  <p>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+		
+		
+		<span class="tag"><a href="https://pinnosuke.github.io/tags/jing-de-saitozienereita/">静的サイトジェネレイター</a></span>
+		
+		<span class="tag"><a href="https://pinnosuke.github.io/tags/github-actions/">GitHub Actions</a></span>
+		
+		<span class="tag"><a href="https://pinnosuke.github.io/tags/github-pages/">GitHub Pages</a></span>
+		
+		<span class="tag"><a href="https://pinnosuke.github.io/tags/zola/">Zola</a></span>
+		
+		
+    </p>
+    
+    <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>5378 Words</p>
+    
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2023-03-30</p>
+    
+    
+	</footer>
+  </article>
+    
+    <aside id="toc">
+        <div id="TableOfContents">
+            <div class="toc-title">Table of content</div>
+            <ul>
+                
+                <li>
+                    <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#hazimeni">はじめに</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#zolanoinsutorutopuroziekutonozuo-cheng">Zolaのインストールとプロジェクトの作成</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#zola-noinsutoru">Zola のインストール</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#puroziekutonoxin-gui-zuo-cheng">プロジェクトの新規作成</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#git-deguan-li-sitai">git で管理したい</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#zhun-bei-wan-liao">準備完了！</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#temawoarekoresuru">テーマをあれこれする</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#tematute">テーマって？</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#temanoinsutorutute">テーマのインストールって？</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#ji-shi-woshu-ku">記事を書く</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#ji-shi-wogong-kai-suru">記事を公開する</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#github-actions-karano-github-pages-he">GitHub Actions からの GitHub Pages へ</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#public-token-nozuo-cheng-2023-03-30-ban">PUBLIC_TOKEN の作成 2023-03-30 版</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#wakuhuronozuo-cheng">ワークフローの作成</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://pinnosuke.github.io/posts/zola-and-github-pages/#owarini">おわりに</a>
+                    
+                </li>
+                
+            </ul>
+        </div>
+    </aside>
+    
+  
+  <div class="post-nav thin">
+	
+	
+  </div>
+
+  
+</main>
+
+	  </div>
+	  
+	  
+
+
+
+<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+  <p>&copy; 2023 <a href="https:&#x2F;&#x2F;pinnosuke.github.io&#x2F;">Pinnosuke</a></p>
+  <p>Made with <a href="https://www.getzola.org" target="_blank" rel="noopener">Zola</a> &#183; Theme <a href="https://github.com/pinnosuke/zaim_zola" target="_blank" rel="noopener">Zaim_Zola</a>
+	
+	&#183; <a href="https://pinnosuke.github.io/rss.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+	
+  </p>
+</footer>
+
+
+
+
+	</div>
+	
+	<script src="https://pinnosuke.github.io/js/main.js"></script>
+
+	<!-- Math rendering -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, { delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}]});"></script>
+
+    
+		<link href="https://unpkg.com/highlightjs-badge/highlightjs/styles/railscasts.css" rel="stylesheet">
+		<!-- https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/styles/  for min version -->
+		<script src="https://unpkg.com/highlightjs-badge/highlightjs/highlight.pack.js"></script>
+		<script src="https://unpkg.com/highlightjs-badge/highlightjs-badge.min.js"></script>
+		<script>
+			var pres = document.querySelectorAll("pre>code");
+			for (var i = 0; i < pres.length; i++) {
+				hljs.highlightBlock(pres[i]);
+			}
+		</script>
+		
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+			<script>
+				var options = {
+					copyIconClass: "gg-clipboard",
+					checkIconClass: "gg-check"
+				};
+				window.highlightJsBadge(options);
+			</script>
+		
+
+	
+
+	
+	<script src="https://pinnosuke.github.io/js/main.js"></script>
+
+    
+    
+
+	
+  </body>
+</html>
